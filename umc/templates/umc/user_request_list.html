@@ -6,19 +6,17 @@
         <div>
             <h1><a href="">User Management Console</a></h1>
         </div>
-
-        <div>
-            <p>created: 14.06.2014, 12:14</p>
-			<p><h4>Requestor Employee ID:  </h4> <a href="">B89D</a></p>
-            <p><h4>User Employee ID:  </h4> <a href="">A12Z</a></p>
-            <p><h4>Client Name:  </h4> <a href="">Ulta</a></p>
-		</div>
-
-        <div>
-			<p>created: 18.10.2015, 11:56</p>
-			<p><h4>Requestor Employee ID:  </h4> <a href="">D98G</a></p>
-			<p><h4>User Employee ID:  </h4> <a href="">P34S</a></p>
-			<p><h4>Client Name:  </h4> <a href="">Verizon</a></p>
+		
+		<div>
+			{% for user_request in user_requests %}
+				<div>
+					<p>created: {{ user_request.created_date }}</p>
+					<h4><a href="">{{ user_request.requestor_emp_id }}</a></h4>
+					<h4><a href="">{{ user_request.user_emp_id }}</a></h4>
+					<h4><a href="">{{ user_request.client_name }}</a></h4>
+				</div>
+			{% endfor %}
         </div>
+
     </body>
 </html>
