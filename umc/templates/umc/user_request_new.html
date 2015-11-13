@@ -1,7 +1,7 @@
 {% extends 'umc/base.html' %}
 
 {% block content %}
-	<h1>Edit Request</h1>
+	<h1>New Request</h1>
     <form method="POST" class="user-request-form">{% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="save btn btn-default">Save</button>
