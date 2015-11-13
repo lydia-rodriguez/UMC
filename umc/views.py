@@ -41,3 +41,8 @@ def user_request_edit(request, pk):
 	else:
 		form = User_Request_Form(instance=user_request)
 	return render(request, 'umc/user_request_edit.html', {'form': form})
+	
+def user_request_remove(request, pk):
+    user_request = get_object_or_404(User_Request, pk=pk)
+    user_request.delete()
+    return redirect('umc.views.user_request_list')
