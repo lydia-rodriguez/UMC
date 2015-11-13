@@ -1,22 +1,14 @@
-<html>
-    <head>
-        <title>UMC</title>
-    </head>
-    <body>
-        <div>
-            <h1><a href="">User Management Console</a></h1>
-        </div>
-		
-		<div>
-			{% for user_request in user_requests %}
-				<div>
-					<p>created: {{ user_request.created_date }}</p>
-					<h4><a href="">{{ user_request.requestor_emp_id }}</a></h4>
-					<h4><a href="">{{ user_request.user_emp_id }}</a></h4>
-					<h4><a href="">{{ user_request.client_name }}</a></h4>
-				</div>
-			{% endfor %}
-        </div>
+{% extends 'umc/base.html' %}
 
-    </body>
-</html>
+{% block content %}
+	{% for user_request in user_requests %}
+		<div class="user_request">
+			<div class="date">
+				<p>created: {{ user_request.created_date }}</p>
+			</div>
+			<h5>Requestor Employee ID:  <a href="">{{ user_request.requestor_emp_id }}</a></h5>
+			<h5>User Employee ID:  <a href="">{{ user_request.user_emp_id }}</a></h5>
+			<h5>Client Name:  <a href="">{{ user_request.client_name }}</a></h5>
+		</div>
+	{% endfor %}
+{% endblock %}
