@@ -15,7 +15,7 @@ body {
 
 .page-header {
 	background-image: url(/static/images/banner.jpg);
-	background-size: 90% 100%;
+	background-size: 100% 100%;
 	margin-top: 0;
 	padding: 20px 20px 40px 20px;
 }
@@ -43,7 +43,7 @@ h1, h2, h3, h4 {
 	float: right;
 }
 
-.request-form textarea. .request-form input {
+.user-request-form textarea. .request-form input {
 	width: 100%;
 }
 

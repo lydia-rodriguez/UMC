@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.utils import timezone
 from .models import User_Request
 from django.shortcuts import render, get_object_or_404
+from .forms import User_Request_Form
 
 # Create your views here.
 def user_request_list(request):
@@ -11,3 +12,19 @@ def user_request_list(request):
 def user_request_detail(request, pk):
 	user_request = get_object_or_404(User_Request, pk=pk)
 	return render(request, 'umc/user_request_detail.html', {'user_request': user_request})
+	
+def user_request_new(request):
+	if request.method == "POST":
+		form = User_Request_Form(request.POST)
+		if form.is_valid():
+			print(form.fields)
+			user_request = form.save(commit=False)
+			user_request.requestor_emp_id = request.POST['requestor_emp_id']
+			user_request.user_emp_id = request.POST['user_emp_id']
+			user_request.client_name = request.POST['client_name']
+			user_request.save()
+			return redirect('umc.views.user_request_detail', pk=user_request.id)
+	else:
+		print("Hello World")
+		form = User_Request_Form()
+	return render(request, 'umc/user_request_edit.html', {'form': form})
