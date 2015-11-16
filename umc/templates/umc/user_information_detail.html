@@ -3,10 +3,8 @@
 {% block content %}
 	<div class="user_request">
 		<a href= "{% url 'user_request_list' %}" class="btn btn-default" >Cancel</a>
-		<h1>User Account Request</h1>
-		<h5>Requestor Employee ID:  <a href="">{{ user_request.requestor_emp_id }}</a></h5>
-		<h5>User Employee ID:  <a href="">{{ user_request.user_emp_id }}</a></h5>
-		<h5>Client Name:  <a href="">{{ user_request.client_name }}</a></h5>
+		<h1>User Details</h1>
+		User_Request.objects.all().filter(user_emp_id='D98A')
 	</div>
 	
 	<div>
