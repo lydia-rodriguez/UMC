@@ -3,16 +3,19 @@ from django.utils import timezone
 from .models import User_Request
 from django.shortcuts import render, get_object_or_404
 from .forms import User_Request_Form
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+@login_required
 def user_request_list(request):
 	user_requests = User_Request.objects.filter(created_date__lte=timezone.now()).order_by('created_date')
 	return render(request, 'umc/user_request_list.html', {'user_requests':user_requests})
 
+@login_required
 def user_request_detail(request, pk):
 	user_request = get_object_or_404(User_Request, pk=pk)
 	return render(request, 'umc/user_request_detail.html', {'user_request': user_request})
 	
+@login_required
 def user_request_new(request):
 	if request.method == "POST":
 		form = User_Request_Form(request.POST)
@@ -26,7 +29,8 @@ def user_request_new(request):
 	else:
 		form = User_Request_Form()
 	return render(request, 'umc/user_request_new.html', {'form': form})
-	
+
+@login_required
 def user_request_edit(request, pk):
 	user_request = get_object_or_404(User_Request, pk=pk)
 	if request.method == "POST":
@@ -41,7 +45,8 @@ def user_request_edit(request, pk):
 	else:
 		form = User_Request_Form(instance=user_request)
 	return render(request, 'umc/user_request_edit.html', {'form': form})
-	
+
+@login_required
 def user_request_remove(request, pk):
     user_request = get_object_or_404(User_Request, pk=pk)
     user_request.delete()
