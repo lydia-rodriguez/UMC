@@ -34,6 +34,10 @@ h1, h2, h3, h4 {
 	font-family: 'Exo 2', sans-serif;
 }
 
+h4 a, h5 a {
+	color: #CF9659;
+}
+
 .date {
 	float: right;
 	color: #828282;
