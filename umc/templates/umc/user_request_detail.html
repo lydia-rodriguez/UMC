@@ -11,9 +11,20 @@
 		<a class="btn btn-default" href="{% url 'user_request_remove' pk=user_request.pk %}"><span class="glyphicon glyphicon-remove"></span></a>
 		<a href= "{% url 'user_request_list' %}" class="btn btn-default" >Cancel</a>
 		<h1>User Account Request</h1>
-		<h5>Requestor Employee ID:  {{ user_request.requestor_emp_id }}</h5>
-		<h5>User Employee ID:  {{ user_request.user_emp_id }}</h5>
-		<h5>Client Name:  {{ user_request.client_name }}</h5>
+		<div class = "boxed">
+			<h5>Requestor's Employee ID:  {{ user_request.requestor_emp_id }} </h5>
+			<h5>Requestor's Full Name:  {{user_request.requestor_first_name}} {{user_request.requestor_last_name}}</h5>
+			<h5>Requestor's Email:  {{user_request.requestor_email}} </h5>
+		</div>
+		
+		<div class = "boxed">
+			<h5>User's Employee ID:  {{ user_request.user_emp_id }} </h5>
+			<h5>User's Full Name:  {{user_request.user_first_name}} {{user_request.user_last_name}} </h5>
+			<h5>User's Email:  {{user_request.user_email}} </h5>
+		</div>
+		<div class = "boxed">
+			<h5>Client Name:  {{ user_request.client_name }} </h5>
+		</div>
 	</div>
 	
 	<div>

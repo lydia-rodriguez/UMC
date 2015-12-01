@@ -7,9 +7,9 @@
 				<p>created: {{ user_request.created_date }}</p>
 			</div>
 			<h4><a href="{% url 'user_request_detail' pk=user_request.id %}">Request</a></h4> 
-			<h5>Requestor Employee ID:  {{ user_request.requestor_emp_id }}
-			<h5>User Employee ID:  {{ user_request.user_emp_id }}
-			<h5>Client Name:  {{ user_request.client_name }}
+			<h5>Requestor's Full Name:  {{user_request.requestor_first_name}} {{user_request.requestor_last_name}}</h5>
+			<h5>User's Full Name:  {{user_request.user_first_name}} {{user_request.user_last_name}} </h5>
+			<h5>Client Name:  {{ user_request.client_name }} </h5>
 		</div>
 	{% endfor %}
 {% endblock %}

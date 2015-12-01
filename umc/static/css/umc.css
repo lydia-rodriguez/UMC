@@ -65,3 +65,8 @@ h4 a, h5 a {
 .user_request h1 a, .user_request h1 a:visited {
 	color: #000000;
 }
+
+.boxed {
+	
+	padding: 10px;
+}

@@ -9,6 +9,7 @@ urlpatterns = [
 	url(r'^user_request/(?P<pk>[0-9]+)/edit/$', views.user_request_edit, name='user_request_edit'),
 	url(r'^user_request/list/$', views.user_request_list, name='user_request_list'),
 	url(r'^user_request/(?P<pk>[0-9]+)/remove/$', views.user_request_remove, name='user_request_remove'),
+	url(r'^user_request/(?P<pk>[0-9]+)/request_engine/$', views.request_engine, name='request_engine'),
 	url(r'^accounts/login/$', 'django.contrib.auth.views.login'),
-    url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
+	url(r'^accounts/logout/$', 'django.contrib.auth.views.logout', {'next_page': '/'}),
 ]

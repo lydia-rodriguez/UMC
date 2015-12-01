@@ -4,7 +4,7 @@
 	<h1>New Request</h1>
     <form method="POST" class="user-request-form">{% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+        <button type="submit" class="save btn btn-default">Submit</button>
 		<a href= "{% url 'user_request_list' %}" class="btn btn-default" >Cancel</a>
     </form>
 {% endblock %}
